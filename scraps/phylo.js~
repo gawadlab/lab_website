@@ -1,0 +1,158 @@
+var svg_width = 400;
+var svg_height = 500;
+var svg_buffer_length = 25;
+
+
+var rate = 1;
+var target_node_count = 5;
+var start_nodes_count = 1;
+var current_time = 0;
+var final_run_prop = 0.05;
+var run_time = 3000;
+
+function get_and_increment_id_function()  {
+  var line_id = 0;
+  return(function()  {
+    line_id += 1;
+    return(line_id -1);
+  });
+}
+var get_and_increment_id = get_and_increment_id_function();
+
+
+
+//Set up the duplication times
+var dup_times = [];
+for(i = 0; i < target_node_count -1; i++)   {
+  console.log(dup_times);
+  var dup_time = d3.randomExponential((i+1) * rate)();
+  var dup_node = Math.floor(d3.randomUniform(0,i+1)());
+  current_time += dup_time;
+  dup_times[i] = [current_time, dup_node];
+}
+dup_times[dup_times.length] = [dup_times[dup_times.length - 1][0] * (1 + final_run_prop), undefined];
+//Rescale duplication times to seconds
+time_scale = d3.scaleLinear()
+  .domain([0, dup_times[dup_times.length - 1][0]])
+  .range([0, run_time]);
+console.log(dup_times);
+for(i=0; i < dup_times.length; i++)  {
+  console.log(dup_times);
+  dup_times[i][0] = time_scale(dup_times[i][0]);
+
+}
+console.log(dup_times);
+
+var xScale = d3.scalePoint().domain([start_nodes_count-1, start_nodes_count-1]).range([svg_buffer_length, svg_width - 2 * svg_buffer_length]); 
+var yScale = d3.scaleLinear().domain([0, dup_times[dup_times.length - 1][0]]).range([svg_height - 2 * svg_buffer_length, svg_buffer_length]); 
+
+//set up initial point
+
+//Note that the data coordinates are always in the domain, not in the range of weither the xScale or yScale
+var svg = d3.select('svg')
+  .attr('width', svg_width)
+  .attr('height', svg_height);
+
+var points_selection = svg
+  .selectAll('line')
+  .data([{'x1':0, 'y1':0, 'x2':0, 'y2':0, 'id':get_and_increment_id(), 'index':0}], function(d,i)  {return(d['id']);})
+  .enter()
+  .append('line')
+  .classed('line-active', true)
+  .attr('x1', function(d) {return(xScale(d['x1']));})
+  .attr('y1', function(d) {return(yScale(d['y1']));})
+  .attr('x2', function(d) {return(xScale(d['x2']));})
+  .attr('y2', function(d) {return(yScale(d['y2']));})
+  .attr('stroke-width', 3)
+  .attr('stroke', 'black');
+
+
+
+
+//Start animation until first duplication triggers a split
+points_selection
+  .each(function(d)  {d['y2'] = dup_times[0][0]})
+  .transition()
+  .duration(function(d)  {return(d['y2'])})
+  .attr('y2', function(d)  {return(d['y2'])});
+
+
+var current_index = 0;
+function duplicate(elapsed_time)  {
+  console.log(current_index);
+  if((elapsed_time >= 2000) | (current_index >= target_node_count - 1)) {
+    evo_timer.stop();
+  }
+  else if(elapsed_time >= dup_times[current_index][0])  {
+    dup_info = dup_times[current_index];
+    current_index += 1;   
+    //Reset xScale's domain
+    xScale.domain([0, current_index -1]);
+    console.log(dup_info);
+    //Reset index of all active lines
+    //Add two daughter lines and activate them
+    svg
+      .selectAll('line')
+      .each(function(d,i)  {
+        if(i < current_index)  {
+          d['index'] = i;
+        }
+        else  {
+          d['index'] = i + 2;
+        }
+      })
+      .data([{'x1':dup_info[1], 'y1':dup_info[0], 'x2':dup_info[1], 'y2':dup_times[current_index][0], 'id':get_and_increment_id(), 'index':dup_info[1]}, {'x1':dup_info[1], 'y1':dup_info[0], 'x2':dup_info[1], 'y2':dup_times[current_index][0], 'id':get_and_increment_id(), 'index':dup_info[1] + 1}], function(d,i)  {return(d['id']);})
+      .enter()
+      .append('line')
+      .attr('x1', function(d) {return(xScale(dup_info[1]));})
+      .attr('y1', function(d) {return(yScale(dup_info[0]));})
+      .attr('x2', function(d) {return(xScale(dup_info[1]));})
+      .attr('y2', function(d) {return(yScale(dup_info[0]));})
+      .attr('stroke-width', 3)
+      .attr('stroke', 'black');
+    
+    //rescale all x coordinates
+    svg
+      .selectAll('line')
+      .transition()
+      .duration(100)
+      .attr('x1', function(d)  {return(d['x1'])})
+      .attr('x2', function(d)  {return(d['x2'])})
+      .duration(dup_times[current_index][0] - dup_info[0])
+      .attr('y2', function(d)  {return(d['y2'])});
+  
+
+    //Deactivate the duplication branch
+
+    var lines = svg
+      .selectAll('line.line-active')
+      .data([{'x1':dup_info[1], 'y1':dup_info[0], 'x2':dup_info[1], 'y2':dup_info[0], 'id':current_index, 'index':dup_info[1]}], function(d,i)  {return(d['id']);})
+      .enter()
+      .append('line')
+      .classed('line-active', true)
+      .attr('x1', function(d) {xScale(d['x1']);})
+      .attr('y1', function(d) {yScale(d['y1']);})
+      .attr('x2', function(d) {xScale(d['x2']);})
+      .attr('y2', function(d) {yScale(d['y2']);})
+      .attr('stroke-width', 3)
+      .attr('stroke', 'black');
+    lines
+    //Shift all x coordinates because a new point has been added
+    lines
+      .each(function(d)  {
+        d['x1'] = xScale(d['x1']);
+        d['x2'] = xScale(d['x2']);
+      })
+      .transition()
+      .duration(100)
+      .attr('x1', function(d)  {return(d['x1']);})
+      .attr('x2', function(d)  {return(d['x2']);})
+
+    
+  }
+}
+
+var evo_timer = d3.timer(duplicate);
+
+console.log("Duplication times and nodes:");
+console.log(dup_times);
