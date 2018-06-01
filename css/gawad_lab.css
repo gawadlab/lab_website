@@ -156,7 +156,7 @@ header.masthead {
 
 @media (min-width: 768px) {
   header.masthead .intro-text {
-    padding-top: 300px;
+    padding-top: 200px;
     padding-bottom: 200px; }
     header.masthead .intro-text .intro-lead-in {
       font-size: 40px;
@@ -178,6 +178,8 @@ header.masthead {
   .card .card-body {
     padding: 0px;
     width: 100%; }
+    .card .card-body p {
+      text-align: justify; }
 
 .service-heading {
   margin: 15px 0;
