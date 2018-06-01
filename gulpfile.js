@@ -5,6 +5,7 @@ var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
+var pump = require('pump');
 var pkg = require('./package.json');
 
 // Set the banner content
@@ -18,7 +19,7 @@ var banner = ['/*!\n',
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function() {
-  return gulp.src('scss/agency.scss')
+  return gulp.src('scss/gawad_lab.scss')
     .pipe(sass())
     .pipe(header(banner, {
       pkg: pkg
@@ -31,7 +32,7 @@ gulp.task('sass', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['sass'], function() {
-  return gulp.src('css/agency.css')
+  return gulp.src('css/gawad_lab.css')
     .pipe(cleanCSS({
       compatibility: 'ie8'
     }))
@@ -44,9 +45,26 @@ gulp.task('minify-css', ['sass'], function() {
     }))
 });
 
+gulp.task('minify-js', function(cb) {
+	pump([
+		gulp.src('js/gawad_lab.js'),
+		uglify(),
+		rename({
+      suffix: '.min'
+    }),
+		header(banner, {
+      pkg: pkg
+    }),
+		gulp.dest('js')
+		],
+		cb
+	);
+});
+
 // Minify custom JS
+/*
 gulp.task('minify-js', function() {
-  return gulp.src('js/agency.js')
+  return gulp.src('js/gawad_lab.js')
     .pipe(uglify())
     .pipe(header(banner, {
       pkg: pkg
@@ -59,6 +77,7 @@ gulp.task('minify-js', function() {
       stream: true
     }))
 });
+*/
 
 // Copy vendor files from /node_modules into /vendor
 // NOTE: requires `npm install` before running!
@@ -89,6 +108,9 @@ gulp.task('copy', function() {
 
   gulp.src(['node_modules/slick-carousel/slick/slick.min.js'])
     .pipe(gulp.dest('vendor/slick-carousel'))
+
+  gulp.src(['node_modules/d3/dist/d3.min.js'])
+    .pipe(gulp.dest('vendor/d3'))
 })
 
 // Default task
