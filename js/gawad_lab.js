@@ -188,8 +188,12 @@ window.onload = function() {
   console.log("ARGH!")
   $('#publications_carousel').slick(
     {
+			arrows: true,
+			centerMode: true,
+			centerPadding: '60px',
       dots:true,
       speed: 500,
+			infinite: false,
       slidesToShow: 3
     }
   );
