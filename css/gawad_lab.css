@@ -36,7 +36,7 @@ section {
   section h3.section-subheading {
     font-size: 16px;
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     margin-bottom: 75px;
     text-transform: none;
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -143,7 +143,7 @@ header.masthead {
     padding-bottom: 100px; }
     header.masthead .intro-text .intro-lead-in {
       font-size: 22px;
-      font-style: italic;
+      font-style: normal;
       line-height: 22px;
       margin-bottom: 25px;
       font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -160,7 +160,7 @@ header.masthead {
     padding-bottom: 200px; }
     header.masthead .intro-text .intro-lead-in {
       font-size: 40px;
-      font-style: italic;
+      font-style: normal;
       line-height: 40px;
       margin-bottom: 25px;
       font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -230,7 +230,7 @@ header.masthead {
       text-transform: none; }
     #portfolio .portfolio-item .portfolio-caption p {
       font-size: 16px;
-      font-style: italic;
+      font-style: normal;
       margin: 0;
       font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
@@ -256,7 +256,7 @@ header.masthead {
       margin-bottom: 30px; }
     .portfolio-modal .modal-content p.item-intro {
       font-size: 16px;
-      font-style: italic;
+      font-style: normal;
       margin: 20px 0 30px;
       font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
     .portfolio-modal .modal-content ul.list-inline {
@@ -445,6 +445,9 @@ header.masthead {
     text-transform: none; }
   .team-member p {
     margin-top: 0; }
+
+.lab_alumni .row {
+  padding-bottom: 20px; }
 
 section#contact {
   background-color: #212529;

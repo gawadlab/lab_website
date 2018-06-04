@@ -184,6 +184,8 @@ var linked_fades = create_linked_fades_object();
 })(jQuery); // End of use strict
 
 window.onload = function() {
+	linked_fades.execute_masthead_animation();
+  console.log("ARGH!")
   $('#publications_carousel').slick(
     {
       dots:true,
@@ -191,6 +193,5 @@ window.onload = function() {
       slidesToShow: 3
     }
   );
-	linked_fades.execute_masthead_animation();
   console.log("ARGH!")
 }
