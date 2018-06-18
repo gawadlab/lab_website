@@ -193,7 +193,7 @@ window.onload = function() {
 			centerPadding: '60px',
       dots:true,
       speed: 500,
-			infinite: false,
+			infinite: true,
       slidesToShow: 3
     }
   );
