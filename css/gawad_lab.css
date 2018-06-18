@@ -181,6 +181,11 @@ header.masthead {
     .card .card-body p {
       text-align: justify; }
 
+section#research p {
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-align: justify; }
+
 .service-heading {
   margin: 15px 0;
   text-transform: none; }
