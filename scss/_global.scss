@@ -8,6 +8,10 @@ p {
   line-height: 1.75;
 }
 
+p.text-muted {
+  color: #6B737B !important; 
+}
+
 a {
   color: $primary;
   &:hover {

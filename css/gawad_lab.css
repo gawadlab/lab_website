@@ -10,6 +10,9 @@ body {
 p {
   line-height: 1.75; }
 
+p.text-muted {
+  color: #6B737B !important; }
+
 a {
   color: #ff6100; }
   a:hover {
@@ -130,7 +133,7 @@ body {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
