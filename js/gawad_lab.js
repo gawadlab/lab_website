@@ -55,13 +55,13 @@ function gradient_name(svg)  {
 	}
 
 	function run_gradient()  {
-		svg.select("#upper_boundary")
+		svg.select(".upper_boundary")
 			.transition() 
 			.delay(time_delay)
 			.duration(run_time)
 			.ease(d3.easeLinear)
 			.attr('offset', '0%');
-		svg.select("#lower_boundary")
+		svg.select(".lower_boundary")
 			.transition() 
 			.delay(time_delay)
 			.duration(run_time)
@@ -70,13 +70,13 @@ function gradient_name(svg)  {
 	}
 
 	function run_reverse_gradient()  {
-		svg.select("#upper_boundary")
+		svg.select(".upper_boundary")
 			.transition() 
 			.delay(time_delay)
 			.duration(run_time)
 			.ease(d3.easeLinear)
 			.attr('offset', '100%');
-		svg.select("#lower_boundary")
+		svg.select(".lower_boundary")
 			.transition() 
 			.delay(time_delay)
 			.duration(run_time)
@@ -85,41 +85,6 @@ function gradient_name(svg)  {
 	}
 	return({set_run_time:set_run_time, set_time_delay:set_time_delay, run_gradient:run_gradient, run_reverse_gradient:run_reverse_gradient});
 }
-
-/*function execute_masthead_animation()  {
-	console.log("FOO!!!");
-	var phylo_tree_selection = d3.selectAll('svg#phylo_tree');
-	var gradient_name_selection = d3.selectAll('svg#gradient_name');
-	phylo_tree_obj = phylo_tree(phylo_tree_selection);
-	console.log("############\n################\n##############\nARGH\n###########\n###########");
-	gradient_name_obj = gradient_name(gradient_name_selection);
-	phylo_tree_obj.set_target_node_count(20);
-	phylo_tree_obj.set_run_time(1000);
-	phylo_tree_obj.run_simulation();
-	gradient_name_obj.set_time_delay(1000);
-	gradient_name_obj.set_run_time(375);
-	gradient_name_obj.run_gradient();
-	d3.select("#mainLabName").style('opacity', 1);
-	console.log("############\n################\n##############\nARGH\n###########\n###########");
-	fade_element(d3.select("#navBarLabName"));
-
-  //debugger;
-	phylo_tree_selection.select("#upper_boundary")
-		.transition() 
-		.delay(1000)
-		.duration(1000)
-		.ease(d3.easeLinear)
-		.attr('offset', '0%');
-	phylo_tree_selection.select("#lower_boundary")
-		.transition() 
-		.delay(1000)
-		.duration(1000)
-		.ease(d3.easeLinear)
-		.attr('offset', '0%');
-	console.log("HEEEELLLLLLO!?!?!?!?");
-}
-
-*/
 
 var linked_fades = create_linked_fades_object();
 

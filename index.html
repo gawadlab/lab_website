@@ -32,9 +32,6 @@
 		<!-- Custom styles for this template -->
 		<link href="css/gawad_lab.min.css" rel="stylesheet">
 
-		<!--<script type="text/javascript" src="lab_website.js"></script>-->
-		<link rel="stylesheet" href="https://i.icomoon.io/public/temp/1217ff94d0/foobar/style.css">
-
 	</head>
 
 	<body id="page-top">
@@ -42,12 +39,7 @@
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 			<div class="container">
-				<!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>-->
-				<img src="img/logos/sj_logo_white_small.png"></img>
-				<!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					Menu
-					<i class="fa fa-bars"></i>
-				</button>-->
+				<img src="img/logos/sj_logo_white_small.png" alt="Header St Jude logo"></img>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase ml-auto">
 						<span id="navBarLabName" class="intro-heading navbar-text" style="color: white; font-size: 25px; font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; opacity:0;">
@@ -77,7 +69,6 @@
 			<div class="container">
 				<div class="intro-text pb-0">
 					<div class="intro-lead-in">Welcome To The</div>
-					<!--<div class="intro-heading text-uppercase m-0">Gawad Lab</div>-->
 					<div class="row">
 						<div class="col row-centered">
 							<svg id="gradient_name" width="500" height="75">
@@ -85,8 +76,8 @@
 								<defs>
 									<linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
 										<stop offset="0%" style="stop-color:white; stop-opacity:0" />
-										<stop id="upper_boundary" offset="100%" style="stop-color:white; stop-opacity:0" />
-										<stop id="lower_boundary" offset="100%" style="stop-color: white; stop-opacity:1" />
+										<stop class="upper_boundary" offset="100%" style="stop-color:white; stop-opacity:0" />
+										<stop class="lower_boundary" offset="100%" style="stop-color: white; stop-opacity:1" />
 										<stop offset="100%" style="stop-color:white; stop-opacity:1" />
 									</linearGradient>
 								</defs>
@@ -103,15 +94,14 @@
 								<defs>
 									<linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
 										<stop offset="0%" style="stop-opacity:1" />
-										<stop id="upper_boundary" offset="100%" style="stop-opacity:1" />
-										<stop id="lower_boundary" offset="100%" style="stop-opacity:0" />
+										<stop class="upper_boundary" offset="100%" style="stop-opacity:1" />
+										<stop class="lower_boundary" offset="100%" style="stop-opacity:0" />
 										<stop offset="100%" style="stop-opacity:0" />
 									</linearGradient>
 								</defs>
 							</svg>
 						</div>
 					</div>
-					<!--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>-->
 				</div>
 			</div>
 		</header>
@@ -121,7 +111,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<!--<h2 class="section-heading text-uppercase">Research</h2>-->
 						<h2 class="section-heading text-uppercase">Studying Evolution at Cellular Resolution</h2>
 						<p>Welcome to the Gawad lab! We work at the interface of biotechnology, computational biology, cellular biology, and clinical medicine. We take pride in our ability to think creatively to devise innovative solutions to challenging biological questions. We are focused on studying how the genomes of individual cells evolve when placed under selection pressure, and aim to understand how that genetic diversity contributes to human health and disease.</p>
 					</div>
@@ -129,23 +118,20 @@
 				<div class="row text-center">
 					<div class="col-md-4">
 						<div class="card">
-							<img class="card-img-top" src="img/research_cancer_clonal_evolution_cropped_350x350.jpg">
+							<img class="card-img-top"
+                            src="img/research_cancer_clonal_evolution_cropped_350x350.jpg"
+                            alt="Clonal evolution">
 							<div class="card-body" >
 								<h4 class="service-heading">Cancer Clonal Evolution and Treatment Resistance</h4>
 								<p class="text-muted">Cancer genome sequencing studies have shown clonal heterogeneity is the major cause of treatment resistance that ultimately causes cancer to recur. We are now studying the process of clonal evolution while patients are undergoing cancer treatment using single-cell sequencing methods we have developed in the lab. We aim to identify which cancer clonotypes are associated with resistance to specific drugs so we can better understand and predict treatment response.</p>
 							</div>
 						</div>
-
-						<!--<span class="fa-stack fa-4x">
-							<i class="fa fa-circle fa-stack-2x text-primary"></i>
-							<i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-						</span>
-						<h4 class="service-heading">Cancer Clonal Evolution and Treatment Resistance</h4>
-						<p class="text-muted">Cancer genome sequencing studies have shown clonal heterogeneity is the major cause of treatment resistance that ultimately causes cancer to recur. We are now studying the process of clonal evolution while patients are undergoing cancer treatment using single-cell sequencing methods we have developed in the lab. We aim to identify which cancer clonotypes are associated with resistance to specific drugs so we can better understand and predict treatment response.</p> -->
 					</div>
 					<div class="col-md-4">
 						<div class="card">
-							<img class="card-img-top img-fluid" src="img/research_PLACEHOLDER_350x350.jpg">
+							<img class="card-img-top img-fluid"
+                            src="img/research_virulence_350x350.jpg"
+                            alt="Virulence">
 							<div class="card-body" >
 								<h4 class="service-heading">The Evolution and Virulence of Human Pathogens</h4>
 								<p class="text-muted">Infectious diseases continue to be one of the major causes of early mortality worldwide. We are using single-cell sequencing methods we have developed to understand how more virulent pathogens emerge from a population of bacteria or viruses. We are also using these methods to more deeply understand how antibiotic resistance develops.</p>
@@ -154,7 +140,10 @@
 					</div>
 					<div class="col-md-4">
 						<div class="card">
-							<img class="card-img-top" style="width: auto; height: 100%" src="img/research_development_of_novel_tools_cropped_350x350.jpg">
+							<img class="card-img-top" style="width: auto;
+                            height: 100%"
+                            src="img/research_development_of_novel_tools_cropped_350x350.jpg"
+                            alt="Novel tools">
 							<div class="card-body" >
 								<h4 class="service-heading">Development of Novel Genomics Tools</h4>
 								<p class="text-muted">Although we have made tremendous progress in our ability to interrogate genomes in the past twenty years, we can still do better. We are continuously thinking about ways to improve how we measure genomic variation within a cell. We are also developing novel computational methods for modeling the evolution of populations of cells using single-cell sequencing data.</p>
@@ -165,7 +154,7 @@
 			</div>
 		</section>
 
-		<!-- Portfolio Grid -->
+		<!-- Software Grid -->
 		<section class="bg-light" id="software">
 			<div class="container">
 				<div class="row">
@@ -177,8 +166,10 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-6 portfolio-item"></div>
 					<div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" href="http://www.cellseek.stjude.org/cerebellum">
-							<img class="img-fluid" src="img/applications/cell_seek_application.jpg" alt="">
+						<a class="portfolio-link" href="http://cellseek.stjude.org/cerebellum">
+							<img class="img-fluid"
+                            src="img/applications/cell_seek_application.jpg"
+                            alt="CellSeek">
 						</a>
 						<div class="portfolio-caption">
 							<h4>Developing Cerebellum</h4>
@@ -203,25 +194,37 @@
 					<div id="publications_carousel">
 						<div class='col-xl-4'>
 							<a href="https://doi.org/10.1101/117614">
-								<img class="img-responsive border border-dark" style="max-height:300px;" src='img/publications/all_diversity.png'>
+								<img class="img-responsive border border-dark"
+                                style="max-height:300px;"
+                                src='img/publications/all_diversity.png'
+                                alt="ALL Diversity">
 								<img>
 							</a>
 						</div>
 						<div class='col-xl-4'>
 							<a href="https://doi.org/10.1186/s12864-017-4286-1">
-								<img class="img-responsive border border-dark" style="max-height:300px;" src='img/publications/mutant_segregation.png'>
+								<img class="img-responsive border border-dark"
+                                style="max-height:300px;"
+                                src='img/publications/mutant_segregation.png'
+                                alt="Mutant Segragation">
 								<img>
 							</a>
 						</div>
 						<div class='col-xl-4'>
 							<a href="https://doi.org/10.1371/journal.pone.0164085">
-								<img class="img-responsive border border-dark" style="max-height:300px;" src='img/publications/circular_rnas.jpg'>
+								<img class="img-responsive border border-dark"
+                                style="max-height:300px;"
+                                src='img/publications/circular_rnas.jpg'
+                                alt="Circular RNAs">
 								<img>
 							</a>
 						</div>
 						<div class='col-xl-4'>
 							<a href="https://doi.org/10.1038/nrg.2015.16">
-								<img class="img-responsive border border-dark" style="max-height:300px;" src='img/publications/gawad_sc_dna_seq_review.jpg'>
+								<img class="img-responsive border border-dark"
+                                style="max-height:300px;"
+                                src="img/publications/gawad_sc_dna_seq_review.jpg"
+                                alt="Single-Cell DNA Sequencing Review">
 								<img>
 							</a>
 						</div>
@@ -236,13 +239,14 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading text-uppercase">Our Team</h2>
-						<!--<h3 class="section-subheading text-muted">Current members of the Gawad lab.</h3>-->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
+							<img class="mx-auto rounded-circle"
+                            src="img/team/chuck_headshot_g225x225_r72x72.jpg"
+                            alt="Charles Gawad">
 							<h4>Charles Gawad</h4>
 							<p class="text-muted">Lead Investigator</p>
 							<ul class="list-inline social-buttons">
@@ -266,7 +270,7 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/veronica_headshot.jpg" alt="">
+							<img class="mx-auto rounded-circle" src="img/team/veronica_headshot_g225x225_r72x72x72.jpg" alt="Veronica Gonzalez-Pena">
 							<h4>Veronica Gonzalez-Pena</h4>
 							<p class="text-muted">Staff Scientist</p>
 							<ul class="list-inline social-buttons">
@@ -290,7 +294,8 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/rob_headshot.jpg" alt="">
+							<img class="mx-auto rounded-circle"
+                            src="img/team/rob_headshot_g225x225_r72x72.jpg" alt="Rob Carter">
 							<h4>Rob Carter</h4>
 							<p class="text-muted">Bioinformatics Scientist</p>
 							<ul class="list-inline social-buttons">
@@ -316,7 +321,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/ousman_headshot.jpg" alt="">
+							<img class="mx-auto rounded-circle" src="img/team/ousman_headshot_g225x225_r72x72.jpg" alt="Ousman Mahmud">
 							<h4>Ousman Mahmud</h4>
 							<p class="text-muted">Post-Doctoral Fellow</p>
 							<ul class="list-inline social-buttons">
@@ -340,7 +345,7 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/siva_headshot.jpg" alt="">
+							<img class="mx-auto rounded-circle" src="img/team/siva_headshot_g225x225_r72x72.jpg" alt="Sivaraman Natarajan">
 							<h4>Sivaraman Natarajan</h4>
 							<p class="text-muted">Post-Doctoral Fellow</p>
 							<ul class="list-inline social-buttons">
@@ -364,7 +369,7 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/yakun_headshot.jpeg" alt="">
+							<img class="mx-auto rounded-circle" src="img/team/yakun_headshot_g225x225_r72x72.jpg" alt="Yakun Pang">
 							<h4>Yakun Pang</h4>
 							<p class="text-muted">Post-Doctoral Fellow</p>
 							<ul class="list-inline social-buttons">
@@ -390,29 +395,26 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading text-uppercase">Lab Mascots</h2>
-						<!--<h3 class="section-subheading text-muted">Current members of the Gawad lab.</h3>-->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/ripley.jpg" alt="">
+							<img class="mx-auto rounded-circle"
+                            src="img/team/ripley_headshot_g225x225_r72x72.jpg" alt="Ripley">
 							<h4>Ripley</h4>
-							<!--<p class="text-muted">Good Dog #1</p>-->
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img class="mx-auto rounded-circle" src="img/team/tesla_headshot.jpg" alt="">
+							<img class="mx-auto rounded-circle" src="img/team/tesla_headshot_g225x225_r72x72.jpg" alt="Tesla">
 							<h4>Tesla</h4>
-							<!--<p class="text-muted">Good Dog #2</p>-->
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading text-uppercase">Lab Alumni</h2>
-						<!--<h3 class="section-subheading text-muted">Lab Alumni</h3>-->
 					</div>
 				</div>
 				<div class="row">
@@ -473,30 +475,15 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="row">
-					<div class="col-lg-8 mx-auto text-center">
-						<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-					</div>
-				</div>-->
 			</div>
 		</section>
 
 		<!-- Contact -->
 		<section id="contact">
-			<!-- <div class="container"> -->
-				<!--<div class="row">
-				<div class="col-10">-->
 					<div class='pl-3 pb-4'>
-						<img src="img/foo.png" alt="">
+						<img src="img/logos/sj_logo_white_footer.png"
+                        alt="Footer St Jude logo">
 					</div>
-					<!--</div>
-					<div class="col-2">
-						<img src="img/logos/bwf_logo_x90.png" alt="">
-					</div>
-				</div>
-				<div class="row">
-				</div>-->
-				<!-- </div> -->
 		</section>
 
 
@@ -505,16 +492,16 @@
 			<div class="container border-bottom">
 				<div class="row pb-5">
 					<div class="col">
-						<img src="img/logos/bwf_logo_x90.png" alt="">
+						<img src="img/logos/bwf_logo_x90.png" alt="BWF logo">
 					</div>
 					<div class="col">
-						<img src="img/logos/ash_logo_x90.png" alt="">
+						<img src="img/logos/ash_logo_x90.png" alt="ASH logo">
 					</div>
 					<div class="col">
-						<img src="img/logos/lls_logo_x90.png" alt="">
+						<img src="img/logos/lls_logo_x90.png" alt="LLS logo">
 					</div>
 					<div class="col">
-						<img src="img/logos/how_logo_x90.jpg" alt="">
+						<img src="img/logos/how_logo_x90.png" alt="HOW logo">
 					</div>
 				</div>
 			</div>
@@ -555,212 +542,6 @@
 				</div>
 			</div>
 		</footer>
-
-		<!-- Portfolio Modals -->
-
-		<!-- Modal 1 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Threads</li>
-										<li>Category: Illustration</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal 2 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Explore</li>
-										<li>Category: Graphic Design</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal 3 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Finish</li>
-										<li>Category: Identity</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal 4 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Lines</li>
-										<li>Category: Branding</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal 5 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Southwest</li>
-										<li>Category: Website Design</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal 6 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="close-modal" data-dismiss="modal">
-						<div class="lr">
-							<div class="rl"></div>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-8 mx-auto">
-								<div class="modal-body">
-									<!-- Project Details Go Here -->
-									<h2 class="text-uppercase">Project Name</h2>
-									<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-									<img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-									<p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-									<ul class="list-inline">
-										<li>Date: January 2017</li>
-										<li>Client: Window</li>
-										<li>Category: Photography</li>
-									</ul>
-									<button class="btn btn-primary" data-dismiss="modal" type="button">
-										<i class="fa fa-times"></i>
-										Close Project</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="vendor/jquery/jquery.min.js"></script>
