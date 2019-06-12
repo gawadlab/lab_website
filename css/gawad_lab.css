@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Agency v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/agency)
- * Copyright 2013-2018 Start Bootstrap
+ * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
  */
 body {
@@ -182,12 +182,12 @@ header.masthead {
     padding: 0px;
     width: 100%; }
     .card .card-body p {
-      text-align: justify; }
+      text-align: left; }
 
 section#research p {
   font-size: 20px;
   margin-bottom: 50px;
-  text-align: justify; }
+  text-align: left; }
 
 .service-heading {
   margin: 15px 0;
