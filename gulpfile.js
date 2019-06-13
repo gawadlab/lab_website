@@ -113,6 +113,52 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('vendor/d3'))
 })
 
+// Move Required folders to appengine_www and upload to appengine
+gulp.task('appengine', function() {
+  gulp.src([
+      'vendor/slick-carousel/slick.min.js',
+      'vendor/jquery-easing/jquery.easing.min.js',
+      'vendor/d3/d3.min.js',
+      'vendor/bootstrap/js/bootstrap.bundle.min.js',
+      'vendor/jquery/jquery.min.js',
+      'vendor/bootstrap/css/bootstrap.css',
+      'vendor/font-awesome/css/font-awesome.min.css',
+      'js/phylo_tree.js',
+      'js/gawad_lab.min.js',
+      'js/contact_me.js',
+      'js/jqBootstrapValidation.js',
+      'css/gawad_lab.min.css',
+      'vendor/bootstrap/css/bootstrap.css',
+      'index.html',
+      'img/logos/sj_logo_white_small.png',
+      'img/research_cancer_clonal_evolution_cropped_350x350.jpg',
+      'img/research_virulence_350x350.jpg',
+      'img/research_development_of_novel_tools_cropped_350x350.jpg',
+      'img/applications/cell_seek_application.jpg',
+      'img/publications/all_diversity.png',
+      'img/publications/mutant_segregation.png',
+      'img/publications/circular_rnas.jpg',
+      'img/publications/gawad_sc_dna_seq_review.jpg',
+      'img/team/chuck_headshot_g225x225_r72x72.jpg',
+      'img/team/veronica_headshot_g225x225_r72x72.jpg',
+      'img/team/rob_headshot_g225x225_r72x72.jpg',
+      'img/team/siva_headshot_g225x225_r72x72.jpg',
+      'img/team/ousman_headshot_g225x225_r72x72.jpg',
+      'img/team/yakun_headshot_g225x225_r72x72.jpg',
+      'img/team/ripley_headshot_g225x225_r72x72.jpg',
+      'img/team/tesla_headshot_g225x225_r72x72.jpg',
+      'img/logos/sj_logo_white_footer.png',
+      'img/logos/bwf_logo_x90.png',
+      'img/header-bg.jpg',
+      'img/cancer_cells_rect_gray_low_exposure.jpg',
+      'img/logos/ash_logo_x90.png',
+      'img/logos/lls_logo_x90.png',
+      'img/logos/how_logo_x90.png',
+      'vendor/font-awesome/fonts/**'
+    ], {base: "."})
+    .pipe(gulp.dest('gawadlab_appengine/www/'))
+})
+
 // Default task
 gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
 
