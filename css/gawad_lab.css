@@ -84,7 +84,7 @@ body {
   -webkit-tap-highlight-color: #ff6100; }
 
 #mainNav {
-  background-color: #212529; }
+  background-color: #343a40; }
   #mainNav .navbar-toggler {
     font-size: 12px;
     right: 0;
@@ -128,7 +128,7 @@ body {
     #mainNav.navbar-shrink {
       padding-top: 0;
       padding-bottom: 0;
-      background-color: #212529; } }
+      background-color: #343a40; } }
 
 header.masthead {
   text-align: center;
