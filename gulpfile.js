@@ -135,10 +135,15 @@ gulp.task('appengine', function() {
       'img/research_virulence_350x350.jpg',
       'img/research_development_of_novel_tools_cropped_350x350.jpg',
       'img/applications/cell_seek_application.jpg',
+      'img/publications/res_disease_detection.png',
+      'img/publications/atoh1_2018_paper.png',
+      'img/publications/cerebellum_2018_paper.png',
+      'img/publications/lc3_phagocytosis_2018.png',
+      'img/publications/sc_genome_sequencing_2019.png',
+      'img/publications/gawad_sc_dna_seq_review.png',
       'img/publications/all_diversity.png',
       'img/publications/mutant_segregation.png',
       'img/publications/circular_rnas.jpg',
-      'img/publications/gawad_sc_dna_seq_review.jpg',
       'img/team/chuck_headshot_g225x225_r72x72.jpg',
       'img/team/veronica_headshot_g225x225_r72x72.jpg',
       'img/team/rob_headshot_g225x225_r72x72.jpg',
@@ -154,6 +159,8 @@ gulp.task('appengine', function() {
       'img/logos/ash_logo_x90.png',
       'img/logos/lls_logo_x90.png',
       'img/logos/how_logo_x90.png',
+      'img/logos/stanford-logo-vector-png--1200_50pct.png',
+      'img/logos/stanford-logo-vector-png--1200_25pct.png',
       'vendor/font-awesome/fonts/**'
     ], {base: "."})
     .pipe(gulp.dest('gawadlab_appengine/www/'))
