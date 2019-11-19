@@ -1,2 +1,4 @@
 node_modules/
 node_modules/*
+gawadlab_appengine/www/
+gawadlab_appengine/www/*

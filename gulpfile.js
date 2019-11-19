@@ -18,7 +18,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Compiles SCSS files from /scss into /css
-gulp.task('sass', function() {
+function sass_task() {
   return gulp.src('scss/gawad_lab.scss')
     .pipe(sass())
     .pipe(header(banner, {
@@ -28,10 +28,12 @@ gulp.task('sass', function() {
     .pipe(browserSync.reload({
       stream: true
     }))
-});
+};
+
+gulp.task(sass_task)
 
 // Minify compiled CSS
-gulp.task('minify-css', ['sass'], function() {
+gulp.task('minify-css', gulp.series(sass_task, function() {
   return gulp.src('css/gawad_lab.css')
     .pipe(cleanCSS({
       compatibility: 'ie8'
@@ -43,7 +45,7 @@ gulp.task('minify-css', ['sass'], function() {
     .pipe(browserSync.reload({
       stream: true
     }))
-});
+}));
 
 gulp.task('minify-js', function(cb) {
 	pump([
@@ -61,23 +63,6 @@ gulp.task('minify-js', function(cb) {
 	);
 });
 
-// Minify custom JS
-/*
-gulp.task('minify-js', function() {
-  return gulp.src('js/gawad_lab.js')
-    .pipe(uglify())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('js'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-*/
 
 // Copy vendor files from /node_modules into /vendor
 // NOTE: requires `npm install` before running!
@@ -115,7 +100,7 @@ gulp.task('copy', function() {
 
 // Move Required folders to appengine_www and upload to appengine
 gulp.task('appengine', function() {
-  gulp.src([
+  return gulp.src([
       'vendor/slick-carousel/slick.min.js',
       'vendor/jquery-easing/jquery.easing.min.js',
       'vendor/d3/d3.min.js',
@@ -129,9 +114,11 @@ gulp.task('appengine', function() {
       'js/jqBootstrapValidation.js',
       'css/gawad_lab.min.css',
       'vendor/bootstrap/css/bootstrap.css',
-      'index.html',
-      'img/logos/sj_logo_white_small.png',
+      './index.html',
       'img/research_cancer_clonal_evolution_cropped_350x350.jpg',
+      'img/logos/stanford-white.png',
+      'img/logos/cz_biohub_logo_50pct.png',
+      'img/logos/new_innovator_award.png',
       'img/research_virulence_350x350.jpg',
       'img/research_development_of_novel_tools_cropped_350x350.jpg',
       'img/applications/cell_seek_application.jpg',
@@ -146,19 +133,17 @@ gulp.task('appengine', function() {
       'img/publications/circular_rnas.jpg',
       'img/team/chuck_headshot_g225x225_r72x72.jpg',
       'img/team/veronica_headshot_g225x225_r72x72.jpg',
-      'img/team/rob_headshot_g225x225_r72x72.jpg',
-      'img/team/siva_headshot_g225x225_r72x72.jpg',
-      'img/team/ousman_headshot_g225x225_r72x72.jpg',
       'img/team/yakun_headshot_g225x225_r72x72.jpg',
+      'img/team/yuntao_headshot.jpg',
+      'img/team/david_klein_headshot_g225x225_r72x72.jpg',
       'img/team/ripley_headshot_g225x225_r72x72.jpg',
       'img/team/tesla_headshot_g225x225_r72x72.jpg',
-      'img/logos/sj_logo_white_footer.png',
-      'img/logos/bwf_logo_x90.png',
+      'img/logos/bwf_logo_x120.png',
       'img/header-bg.jpg',
       'img/cancer_cells_rect_gray_low_exposure.jpg',
-      'img/logos/ash_logo_x90.png',
-      'img/logos/lls_logo_x90.png',
-      'img/logos/how_logo_x90.png',
+      'img/logos/ash_logo_x120.png',
+      'img/logos/lls_logo_x120.png',
+      'img/logos/how_logo_x120.png',
       'img/logos/stanford-logo-vector-png--1200_50pct.png',
       'img/logos/stanford-logo-vector-png--1200_25pct.png',
       'vendor/font-awesome/fonts/**'
@@ -167,7 +152,7 @@ gulp.task('appengine', function() {
 })
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', gulp.series(sass_task, 'minify-css', 'minify-js', 'copy'));
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -179,11 +164,11 @@ gulp.task('browserSync', function() {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
-  gulp.watch('scss/*.scss', ['sass']);
+gulp.task('dev', gulp.series('browserSync', sass_task, 'minify-css', 'minify-js', function() {
+  gulp.watch('scss/*.scss', [sass_task]);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
   gulp.watch('*.html', browserSync.reload);
   gulp.watch('js/**/*.js', browserSync.reload);
-});
+}));
